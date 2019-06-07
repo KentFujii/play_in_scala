@@ -20,5 +20,3 @@ services:
       TZ: "Asia/Tokyo"
     ports:
       - "3306:3306"
-
-
