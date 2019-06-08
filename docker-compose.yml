@@ -17,6 +17,6 @@ services:
     environment:
       MYSQL_DATABASE: play
       MYSQL_ROOT_PASSWORD: root
-      TZ: "Asia/Tokyo"
+      TZ: Asia/Tokyo
     ports:
-      - "3306:3306"
+      - 3306:3306
