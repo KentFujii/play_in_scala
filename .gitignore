@@ -3,3 +3,4 @@ target
 .ivy2
 .sbt
 .scala_history
+logs/
