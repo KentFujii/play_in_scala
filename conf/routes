@@ -6,6 +6,9 @@ GET /sample_app controllers.SampleAppController.index
 
 # Task Tracker
 GET /task_tracker controllers.TaskTrackerController.index
+GET /task_tracker/tasks controllers.TaskTrackerController.tasks
+POST /task_tracker/tasks controllers.TaskTrackerController.newTask
+DELETE /task_tracker/tasks/:id controllers.TaskTrackerController.deleteTask(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
