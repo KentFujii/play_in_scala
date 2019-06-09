@@ -36,4 +36,8 @@ class ActionAppController @Inject()(cc: ControllerComponents) extends AbstractCo
       Ok(views.html.action_app.index(result))
     }
   }
+
+  def subscribe = Action { request =>
+    Ok("received " + request.body + "\n")
+  }
 }
