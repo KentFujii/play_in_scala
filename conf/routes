@@ -1,4 +1,4 @@
-# An example controller showing a sample home page
+# Home
 GET / controllers.HomeController.index
 
 # Sample App
@@ -11,7 +11,10 @@ POST /task_tracker/tasks controllers.TaskTrackerController.newTask
 DELETE /task_tracker/tasks/:id controllers.TaskTrackerController.deleteTask(id: Int)
 
 # Action App
-GET /api/artist controllers.ActionAppController.listArtist
+GET /action_app/api/artist controllers.ActionAppController.listArtist
+GET /action_app/api/artist/:name controllers.ActionAppController.fetchArtistByName(name: String)
+GET /action_app/api/search/artist controllers.ActionAppController.search(name: String, country: String)
+GET /action_app/api/search2/artist controllers.ActionAppController.search2(name: Option[String], country: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,9 +1,30 @@
 ## play in scala
 
-docker run -it hseeberger/scala-sbt bash
-sbt new playframework/play-scala-seed.g8
+docker-compose up
 
-### memo
+## apps
+
+apps in this repo
+
+### Home
+
+open http://localhost:9000/task_tracker/tasks
+
+### SampleApp
+
+open http://localhost:9000/sample_app
+
+### TaskTrackerApp
+
+open http://localhost:9000/action_app/api/artist
+open http://localhost:9000/action_app/api/artist/Wolfgang
+open http://localhost:9000/action_app/api/search/artist?name=Franz&country=Austria
+open http://localhost:9000/action_app/api/search2/artist?country=Austria
+open http://localhost:9000/action_app/api/search2/artist?name=Franz&country=Austria
+
+### ActionApp
+
+## memo
 
 docs
 
