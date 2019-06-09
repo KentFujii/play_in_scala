@@ -11,11 +11,12 @@ object Task {
   }
 
   def add(taskName: String) = {
-    val newId: Int = taskList.last.id + 1
-    taskList = taskList ++ List(Task(newId, taskName))
+    val newId: Int = if (taskList.nonEmpty) taskList.last.id else 0
+    taskList = taskList ++ List(Task(newId + 1, taskName))
   }
 
   def delete(taskId: Int) = {
+    println(taskId)
     taskList = taskList.filterNot(task => task.id == taskId)
   }
 }
