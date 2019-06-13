@@ -1,0 +1,15 @@
+@()(implicit requestHeader: RequestHeader)
+
+@helper.javascriptRouter("jsRoutes")(
+    routes.javascript.RoutingAppController.fetchGreeting
+)
+
+@main(title="Routing App") {
+  <div id="result"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  jsRoutes.controllers.RoutingAppController.fetchGreeting ( ).ajax ( { success : function ( result ) {
+  document.getElementById ( "result" ).innerHTML = result ;
+  } } ) ;
+  </script>
+}

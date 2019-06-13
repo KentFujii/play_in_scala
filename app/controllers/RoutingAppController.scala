@@ -2,6 +2,7 @@ package controllers
 
 import javax.inject._
 import play.api.mvc._
+import play.api.routing._
 import org.joda.time.DateTime
 
 @Singleton
@@ -34,7 +35,15 @@ class RoutingAppController @Inject()(cc: ControllerComponents) extends AbstractC
     Ok(message)
   }
 
-  def jsDemo = Action {
+  def jsDemo = Action { implicit request =>
     Ok(views.html.routing_app.js_demo())
+  }
+
+  def jsRouter = Action{ implicit request=>
+    Ok(
+      JavaScriptReverseRouter("jsRoutes")(
+        routes.javascript.RoutingAppController.fetchGreeting
+      )
+    ).as("text/javascript")
   }
 }
