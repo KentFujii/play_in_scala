@@ -1,0 +1,6 @@
+@()(implicit requestHeader: RequestHeader)
+
+@main(title="Routing App") {
+  <h1>Hello, World!</h1>
+  The absolute url is @{Html(Call(requestHeader.method, requestHeader.path).absoluteURL())}
+}

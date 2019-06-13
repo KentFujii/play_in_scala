@@ -19,10 +19,10 @@ POST /action_app/subscribe controllers.ActionAppController.subscribe
 
 # Routing App
 GET /routing_app controllers.RoutingAppController.index
-GET /login controllers.RoutingAppController.login
-GET /home controllers.RoutingAppController.index
-GET /greeting controllers.RoutingAppController.fetchGreeting
-GET /demo controllers.RoutingAppController.jsDemo
+GET /routing_app/login controllers.RoutingAppController.login
+GET /routing_app/home controllers.RoutingAppController.index
+GET /routing_app/greeting controllers.RoutingAppController.fetchGreeting
+GET /routing_app/demo controllers.RoutingAppController.jsDemo
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

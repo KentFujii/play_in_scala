@@ -10,12 +10,17 @@ class RoutingAppController @Inject()(cc: ControllerComponents) extends AbstractC
     Ok(views.html.routing_app.index())
   }
 
-  def login = Action {
-    Ok(views.html.routing_app.login())
+  def isValidSession(sessionId: String): Boolean = false
+
+  def home = Action { implicit request =>
+    request.headers.get("sessionId") match {
+      case Some(sId) if isValidSession(sId) => Ok(views.html.routing_app.home())
+      case _ => Redirect(routes.RoutingAppController.login())
+    }
   }
 
-  def home = Action {
-    Ok(views.html.routing_app.home())
+  def login = Action {
+    Ok(views.html.routing_app.login())
   }
 
   def fetchGreeting = Action {
