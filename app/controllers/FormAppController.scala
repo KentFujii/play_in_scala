@@ -46,14 +46,4 @@ class FormAppController @Inject()(cc: ControllerComponents) extends AbstractCont
   def login = Action {
     Ok("login")
   }
-
-  val validUserName = """[A-Za-z0-9]*""".r
-  val userNameCheck: Constraint[String] = Constraint("userName")({
-    text =>
-      val error = text match {
-        case validUserName() => Nil
-        case _ => Seq(ValidationError("only digits and alphabet ar allowed in userName"))
-      }
-      if (error.isEmpty) Valid else Invalid(error)
-  })
 }
