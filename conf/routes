@@ -25,5 +25,11 @@ GET /routing_app/greeting controllers.RoutingAppController.fetchGreeting
 GET /routing_app/demo controllers.RoutingAppController.jsDemo
 GET /jsroute controllers.RoutingAppController.jsRouter
 
+# Form App
+GET /form_app controllers.FormAppController.index
+POST /form_app/register controllers.FormAppController.newUser
+GET /form_app/login controllers.FormAppController.login
+GET /form_app/register controllers.FormAppController.register
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
