@@ -3,7 +3,7 @@ package controllers
 import javax.inject._
 import models.Credentials
 import play.api.mvc._
-import play.api._
+import play.api.data
 import data.Form
 import data.Forms._
 import play.twirl.api.Html
@@ -13,18 +13,15 @@ import play.api.data.validation.{Invalid, Valid, ValidationError, Constraint}
 class FormAppController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   def index = Action {
     implicit request =>
-      val content: play.twirl.api.Html = Html("Hello WOrld")
+      val content: play.twirl.api.Html = Html("Hello World")
       Ok(views.html.form_app.index("home") {
         content
       })
   }
 
-  def newUser = Action(parse.multipartFormData) {
+  def register = Action {
     implicit request =>
-      signupForm.bindFromRequest().fold(
-        formWithErrors => BadRequest(views.html.form_app.register(formWithErrors)),
-        credentials => Ok("Welcome!!!!")
-      )
+      Ok(views.html.form_app.register(signupForm)).withNewSession
   }
 
   val signupForm = Form(
@@ -33,14 +30,16 @@ class FormAppController @Inject()(cc: ControllerComponents) extends AbstractCont
       "password" -> nonEmptyText
     )(Credentials.apply)(Credentials.unapply) verifying("Username already in use",
       result => result match {
-        case loginCredentials =>
-          !loginCredentials.loginId.equals("testUser@app.com")
+        case loginCredentials => !loginCredentials.loginId.equals("testUser@app.com")
       })
   )
 
-  def register = Action {
+  def newUser = Action(parse.multipartFormData) {
     implicit request =>
-      Ok(views.html.form_app.register(signupForm)).withNewSession
+      signupForm.bindFromRequest().fold(
+        formWithErrors => BadRequest(views.html.form_app.register(formWithErrors)),
+        credentials => Ok("Welcome!!!!")
+      )
   }
 
   def login = Action {
