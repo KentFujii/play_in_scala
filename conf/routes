@@ -31,5 +31,9 @@ GET /form_app/register controllers.FormAppController.register
 POST /form_app/register controllers.FormAppController.newUser
 GET /form_app/login controllers.FormAppController.login
 
+# Internationalized App
+GET /internationalized_app/ask controllers.InternationalizedAppController.askUs
+POST /internationalized_app/enquire controllers.InternationalizedAppController.enquire
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
