@@ -1,1 +1,7 @@
 # https://www.playframework.com/documentation/latest/ScalaI18N
+enquery.title = test
+enquery.askUs = test
+enquery.user.email = test
+enquery.user.name = test
+enquery.question = test
+enquery.submit = test

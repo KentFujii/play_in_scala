@@ -7,7 +7,7 @@ import play.api.data.Forms._
 import play.api.i18n._
 
 @Singleton
-class InternationalizedAppController @Inject()(cc: ControllerComponents, messagesApi: MessagesApi) extends AbstractController(cc) with I18nSupport {
+class InternationalizedAppController @Inject()(cc: ControllerComponents) extends AbstractController(cc) with I18nSupport {
   val enquiryForm = Form(
     tuple(
       "emailId" -> email,
