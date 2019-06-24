@@ -1,27 +1,26 @@
-@(enquiryForm: Form[(String, Option[String], String)])(implicit messages: Messages)
-
+@(enquiryForm: Form[(String, Option[String], String)], title: String)(implicit messages: Messages)
 @import helper._
 
-@main(title=messages("enquiry.title")) {
+@main(title=title) {
   <div>
-    <h2>@Messages("enquiry.askUs")</h2>
+    <h2>@messages("enquiry.askUs")</h2>
     @form(routes.InternationalizedAppController.enquire) {
       @enquiryForm.globalError.map { error =>
         <p>
           @error.message
         </p>
       }
-      <label for="emailId">@Messages("enquiry.user.email")
+      <label for="emailId">@messages("enquiry.user.email")
         <input type="email" id="emailId" name="emailId" required>
       </label>
-      <label for="userName">@Messages("enquiry.user.name")
+      <label for="userName">@messages("enquiry.user.name")
         <input type="text" class="form-control" id="userName" name="userName">
       </label>
-      <label for="question">@Messages("enquiry.question")
+      <label for="question">@messages("enquiry.question")
         <textarea rows="4" id="question" name="question"></textarea>
       </label>
       <br/>
-      <button type="submit">@Messages("enquiry.submit")</button>
+      <button type="submit">@messages("enquiry.submit")</button>
     }
   </div>
 }
