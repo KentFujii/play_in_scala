@@ -7,7 +7,7 @@ import play.api.data.Forms._
 import play.api.i18n._
 
 @Singleton
-class InternationalizedAppController @Inject()(cc: ControllerComponents) extends AbstractController(cc) with I18nSupport {
+class InternationalizedAppController @Inject()(cc: ControllerComponents, implicit override val messagesApi: MessagesApi) extends AbstractController(cc) with I18nSupport {
   val enquiryForm = Form(
     tuple(
       "emailId" -> email,
@@ -21,6 +21,10 @@ class InternationalizedAppController @Inject()(cc: ControllerComponents) extends
   }
 
   def askUs = Action { implicit request =>
+    println(request.lang)
+    val messages = request.messages
+    println(messages.lang)
+    println(messages("enquiry.title"))
     Ok(views.html.internationalized_app.index(enquiryForm))
   }
 

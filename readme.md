@@ -46,7 +46,17 @@ open http://localhost:9000/routing_app/demo
 
 ### FormApp
 
+```
+open http://localhost:9000/form_app
+open http://localhost:9000/form_app/register
+open http://localhost:9000/form_app/login
+```
+
 ### InternationalizedApp
+
+```
+open http://localhost:9000/internationalized_app/ask
+```
 
 ### DataApp
 
