@@ -35,5 +35,10 @@ GET /form_app/login controllers.FormAppController.login
 GET /internationalized_app/ask controllers.InternationalizedAppController.askUs
 POST /internationalized_app/enquire controllers.InternationalizedAppController.enquire
 
+# Data App
+GET /data_app/jdbcUser controllers.DataAppController.fetchDBUser
+GET /data_app/anormUser controllers.DataAppController.fetchDBUser
+GET /data_app/slickUser controllers.DataAppController.fetchDBSlickUser
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
