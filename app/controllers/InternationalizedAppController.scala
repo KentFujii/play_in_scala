@@ -23,16 +23,16 @@ class InternationalizedAppController @Inject()(cc: ControllerComponents) extends
   def askUs = Action { implicit request =>
     val messages: Messages = request.messages
     val title: String = messages("enquery.title")
-    println(title)
-    Ok(views.html.internationalized_app.index(enquiryForm, title))
+    val askUs: String = messages("enquery.askUs")
+    Ok(views.html.internationalized_app.index(enquiryForm, title, askUs))
   }
 
   def enquire = Action { implicit request =>
     val messages: Messages = request.messages
     val title: String = messages("enquery.title")
-    println(title)
+    val askUs: String = messages("enquery.askUs")
     enquiryForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.internationalized_app.index(errors, title)),
+      errors => BadRequest(views.html.internationalized_app.index(errors, title, askUs)),
       query => {
         println(query.toString)
         Redirect(routes.InternationalizedAppController.askUs)
