@@ -60,8 +60,6 @@ open http://localhost:9000/internationalized_app/ask
 
 ### DataApp
 
-### WebSocketApp
-
 ### TestApp
 
 ### GuiceApp
