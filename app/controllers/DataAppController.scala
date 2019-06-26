@@ -1,30 +1,14 @@
 package controllers
 
-import play.api.db.DB
+import javax.inject._
 import play.api.mvc._
-import play.api.Play.current
+import play.api.db.DB
+// import play.api.Play.current
 
-object Application extends Controller {
-
-  def index = Action {
-    Ok(views.html.main())
-  }
-
-  def fetchDBUser = Action {
-    var result = "DB User:"
-    val conn = DB.getConnection()
-    try{
-      val rs = conn.createStatement().executeQuery("SELECT USER()")
-      while (rs.next()) {
-        result += rs.getString(1)
-      }
-    } finally {
-      conn.close()
-    }
-    Ok(result)
-  }
-
-  /* without try blocks
+@Singleton
+class DataAppController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+  // https://github.com/KentFujii/test_db
+  // https://dev.mysql.com/doc/employee/en/employees-installation.html
   def fetchDBUser = Action {
     var result = "DB User:"
     DB.withConnection { conn =>
@@ -34,6 +18,5 @@ object Application extends Controller {
       }
     }
     Ok(result)
-  }*/
-
+  }
 }

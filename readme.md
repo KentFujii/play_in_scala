@@ -82,4 +82,5 @@ samples
 https://github.com/playframework/play-samples
 https://www.playframework.com/documentation/2.7.x/Tutorials
 https://github.com/kindlychung/masteringPlay
+http://scalikejdbc.org/
 ```
