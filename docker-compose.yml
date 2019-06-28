@@ -14,9 +14,13 @@ services:
       - db
   db:
     image: mysql:5.7
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/setup.sh:/docker-entrypoint-initdb.d/setup.sh
+      - ./mysql/sql:/var/tmp
     environment:
-      MYSQL_DATABASE: play
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employees
+      MYSQL_ROOT_PASSWORD: password
       TZ: Asia/Tokyo
     ports:
       - 3306:3306
