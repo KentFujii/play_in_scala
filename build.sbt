@@ -12,4 +12,6 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2
 libraryDependencies += jdbc
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.41"
 libraryDependencies += "org.scalikejdbc" %% "scalikejdbc" % "3.3.5"
-libraryDependencies += "org.skinny-framework" %% "skinny-orm" % "3.0.0",
+libraryDependencies += "org.scalikejdbc" %% "scalikejdbc-config" % "3.3.5"
+libraryDependencies += "org.scalikejdbc" %% "scalikejdbc-play-initializer" % "2.7.1-scalikejdbc-3.3"
+libraryDependencies += "org.skinny-framework" %% "skinny-orm" % "3.0.0"

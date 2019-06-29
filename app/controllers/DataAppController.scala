@@ -22,9 +22,8 @@ class DataAppController @Inject()(db: Database, cc: ControllerComponents) extend
   // http://scalikejdbc.org/
   def fetchDepartments = Action {
     val department = Department.findByDeptNo("d009")
-    println(department)
-    // Ok(Department)
-    Ok("")
+    val deptName = department.get.deptName
+    Ok(deptName)
   }
 
   // http://skinny-framework.org/
