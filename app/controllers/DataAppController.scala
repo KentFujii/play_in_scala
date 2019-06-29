@@ -3,20 +3,32 @@ package controllers
 import javax.inject._
 import play.api.mvc._
 import play.api.db._
+import models.Department
 
 @Singleton
 class DataAppController @Inject()(db: Database, cc: ControllerComponents) extends AbstractController(cc) {
-  // https://github.com/KentFujii/test_db
-  // https://dev.mysql.com/doc/employee/en/employees-installation.html
-  // https://www.playframework.com/documentation/2.7.x/ScalaDatabase
-  def fetchDBUser = Action {
-    var result = "DB User:"
+  def fetchEmployees = Action {
+    var result = ""
     db.withConnection { conn =>
-      val rs = conn.createStatement().executeQuery("SELECT USER()")
+      val rs = conn.createStatement().executeQuery("SELECT first_name FROM employees LIMIT 5;")
       while (rs.next()) {
         result += rs.getString(1)
+        result += "\n"
       }
     }
     Ok(result)
+  }
+
+  // http://scalikejdbc.org/
+  def fetchDepartments = Action {
+    val department = Department.findByDeptNo("d009")
+    println(department)
+    // Ok(Department)
+    Ok("")
+  }
+
+  // http://skinny-framework.org/
+  def fetchTitles = Action {
+    Ok("")
   }
 }
