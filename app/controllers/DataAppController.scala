@@ -3,7 +3,7 @@ package controllers
 import javax.inject._
 import play.api.mvc._
 import play.api.db._
-import models.Department
+import models.{Department, Title}
 
 @Singleton
 class DataAppController @Inject()(db: Database, cc: ControllerComponents) extends AbstractController(cc) {
@@ -28,6 +28,7 @@ class DataAppController @Inject()(db: Database, cc: ControllerComponents) extend
 
   // http://skinny-framework.org/
   def fetchTitles = Action {
-    Ok("")
+    val title = Title.findByEmpNo(10001).get.title
+    Ok(title)
   }
 }
