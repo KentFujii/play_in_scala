@@ -60,6 +60,12 @@ open http://localhost:9000/internationalized_app/ask
 
 ### DataApp
 
+```
+open http://localhost:9000/data_app/employees
+open http://localhost:9000/data_app/departments
+open http://localhost:9000/data_app/titles
+```
+
 ### TestApp
 
 ### GuiceApp
